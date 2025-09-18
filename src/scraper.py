@@ -89,24 +89,4 @@ def get_kospi_stocks_naver():
     
     if not stock_data:
         return None
-        
     return pd.DataFrame(stock_data)
-
-if __name__ == '__main__':
-    stocks_df = get_kospi_stocks_naver()
-    if stocks_df is not None:
-        print("네이버 금융 스크레이핑 성공!")
-        print(stocks_df.head())
-
-        # ⭐⭐ [수정] CSV 파일 저장 경로 변경
-        output_file_path = 'data/kospi_stocks.csv'
-        
-        try:
-            # os 모듈을 사용해서 디렉토리가 없으면 생성
-            import os
-            os.makedirs(os.path.dirname(output_file_path), exist_ok=True)
-            
-            stocks_df.to_csv(output_file_path, index=False, encoding='utf-8-sig')
-            print(f"데이터가 '{output_file_path}' 파일에 성공적으로 저장되었습니다.")
-        except Exception as e:
-            print(f"CSV 파일 저장 중 오류 발생: {e}")
