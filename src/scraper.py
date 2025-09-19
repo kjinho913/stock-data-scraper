@@ -10,7 +10,7 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 def get_kospi_stocks_naver():
     stock_data = []
     
-    for page in range(1, 2):
+    for page in range(1, 48):
         url = f"https://finance.naver.com/sise/sise_market_sum.naver?sosok=0&page={page}"
         headers = {'User-Agent': 'Mozilla/5.0'}
         
